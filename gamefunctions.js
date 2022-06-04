@@ -112,7 +112,13 @@ function addObs() {
     obsArray.push(new Obstacle);
 }
 
+function smallerObs() {
+    obstacles.height -= 2;
+    obstacles.width -= 2;
+}
+
 setInterval(addObs, 5000);
+
 
 
 //Screens
