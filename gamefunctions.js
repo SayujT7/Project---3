@@ -35,8 +35,20 @@ class Player {
         }
     }
 
+    borders() {
+        if (this.position.x <= 0) {
+            this.position.x = 11;
+        } else if (this.position.x >= cnv.width - 20) {
+            this.position.x = cnv.width - 21
+        } else if (this.position.y >= cnv.height - 20) {
+            this.position.y = cnv.height - 21;
+        } else if (this.position.y <= 0) {
+            this.position.y = 1;
+        }
+    }
 }
 
+// Obstacle Class
 class Obstacle {
     constructor() {
 
@@ -112,6 +124,11 @@ function addObs() {
     obsArray.push(new Obstacle);
 }
 
+function smallerObs() {
+    obstacles.height -= 2;
+    obstacles.width -= 2;
+}
+
 setInterval(addObs, 5000);
 
 
@@ -140,6 +157,7 @@ function gameScreen() {
     }
 
     player.draw();
+    player.borders();
 
     gameScore();
 }
